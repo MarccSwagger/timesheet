@@ -1,0 +1,20 @@
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+function Header() {
+  return (
+    <header>
+      <nav>
+        <ul>
+          <li><Link to="home">Home</Link></li>
+          <li><Link to="/timesheet">Timesheet Manager</Link></li>
+          <li><Link to="/schedule">Schedule</Link></li>
+          {/* Add more navigation links specific to Timesheet Manager if needed */}
+        </ul>
+      </nav>
+    </header>
+  );
+}
+
+export default Header;

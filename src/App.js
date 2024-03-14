@@ -1,22 +1,19 @@
 import './App.css';
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
-import TimesheetManager from './components/TimesheetManager';
+import Routes from './routes/Routers';
+import Header from './components/Header';
 
 function App() {
   return (
-    <Router>
+    
+    <div>
+
+      <Header />
+
       <div>
-        <Routes>
-          <Route path="/" element={<LoginPage />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/timesheet" element={<TimesheetManager />} />
-          {/* Add more routes as needed */}
-        </Routes>
+        <Routes />
       </div>
-    </Router>
+    </div>
   );
 }
 

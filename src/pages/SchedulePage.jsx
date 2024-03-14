@@ -3,13 +3,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Container } from '@mui/material';
 
-function HomePage() {
+function SchedulePage() {
   return (
     <div>
         <Container>
-      <h2>Welcome to the Timesheet Manager</h2>
+      <h2>Schedule</h2>
       {/* Other content */}
-      <p>wahahaha</p>
+      <p>This is where the user can navigate how long their time is.</p>
       <Link to="/timesheet">
       <Button variant="contained" sx={{ backgroundColor: '#007bff', color: '#fff', '&:hover': {
           backgroundColor: '#ff8a65',
@@ -21,4 +21,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default SchedulePage;
