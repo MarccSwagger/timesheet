@@ -1,0 +1,33 @@
+/* Header Container */
+header {
+    background-color: #4ba8ff; /* Background color of the header */
+    color: #fff; /* Text color */
+    padding: 20px; /* Padding around the header content */
+  }
+  
+  /* Navigation */
+  nav ul {
+    list-style-type: none; /* Remove bullet points from the list */
+    padding: 0; /* Remove padding from the list */
+  }
+  
+  nav ul li {
+    display: inline-block; /* Display list items horizontally */
+    margin-right: 20px; /* Adjust spacing between navigation items */
+    font-weight: bold;
+  }
+  
+  nav ul li:last-child {
+    margin-right: 0; /* Remove margin from the last navigation item */
+  }
+  
+  nav ul li a {
+    color: #fff; /* Text color for navigation links */
+    text-decoration: none; /* Remove underlines from links */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+  
+  nav ul li a:hover {
+    color: #ffa500; /* Change color on hover */
+  }
+  

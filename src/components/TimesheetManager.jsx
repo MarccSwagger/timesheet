@@ -69,12 +69,14 @@ function TimesheetManager() {
           fullWidth
           label="Name"
           name="name"
+          sx={{ marginBottom: '10px' }}
           value={employeeInfo.name}
           onChange={handleChange}
         />
         <FormControl fullWidth>
           <InputLabel>Department</InputLabel>
           <Select
+            sx={{ marginBottom: '10px' }}
             value={employeeInfo.department}
             onChange={handleChange}
             name="department"
@@ -90,6 +92,7 @@ function TimesheetManager() {
           label="Time"
           name="time"
           type="time"
+          sx={{ marginBottom: '10px' }}
           value={employeeInfo.time}
           onChange={handleChange}
           InputLabelProps={{
@@ -101,6 +104,7 @@ function TimesheetManager() {
           label="Date"
           name="date"
           type="date"
+          sx={{ marginBottom: '15px' }}
           value={employeeInfo.date}
           onChange={handleChange}
           InputLabelProps={{
