@@ -9,7 +9,7 @@ function HomePage() {
         <Container>
       <h2>Welcome to the Timesheet Manager</h2>
       {/* Other content */}
-      <p>wahahaha makulay ang buhay</p>
+      <p>wahahaha makulay ang buhay sa sinabawang supas</p>
       <Link to="/timesheet">
       <Button variant="contained" sx={{ backgroundColor: '#007bff', color: '#fff', '&:hover': {
           backgroundColor: '#ff8a65',
