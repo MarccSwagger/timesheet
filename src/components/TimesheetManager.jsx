@@ -10,7 +10,8 @@ function TimesheetManager({}) {
     name: '',
     department: '',
     time: '',
-    date: ''
+    date: '',
+    schedule: ''
   });    
   
 
@@ -25,13 +26,22 @@ function TimesheetManager({}) {
     }));
   };
 
-  const handleAddEntry = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+     // Check if all required fields are filled out
+     if (!employeeInfo.name || !employeeInfo.department || !employeeInfo.time || !employeeInfo.date || !employeeInfo.schedule) {
+      alert('Please fill out all fields before adding entry');
+      return;
+    }
+
     setTimesheetEntries(prevEntries => [...prevEntries, { ...employeeInfo }]);
     setEmployeeInfo({
       name: '',
       department: '',
       time: '',
-      date: ''
+      date: '',
+      schedule: ''
     });
   };
 
@@ -51,7 +61,8 @@ function TimesheetManager({}) {
       name: '',
       department: '',
       time: '',
-      date: ''
+      date: '',
+      schedule: ''
     });
   };
 
@@ -63,9 +74,9 @@ function TimesheetManager({}) {
   return (
     <Container  className="ts-container" maxWidth="md">
       <Typography variant="h4" align="center" gutterBottom>
-        Timesheet Manager,...
+        Timesheet Manager
       </Typography>
-      <form>
+      <form onSubmit={handleSubmit}>
 
         <TextField
           fullWidth
@@ -74,6 +85,7 @@ function TimesheetManager({}) {
           sx={{ marginBottom: '10px' }}
           value={employeeInfo.name}
           onChange={handleChange}
+          required
         />
         <FormControl fullWidth>
           <InputLabel>Department</InputLabel>
@@ -81,6 +93,7 @@ function TimesheetManager({}) {
             sx={{ marginBottom: '10px' }}
             value={employeeInfo.department}
             onChange={handleChange}
+            required
             name="department"
           >
 
@@ -97,6 +110,7 @@ function TimesheetManager({}) {
           sx={{ marginBottom: '10px' }}
           value={employeeInfo.time}
           onChange={handleChange}
+          required
           InputLabelProps={{
             shrink: true,
           }}
@@ -109,12 +123,29 @@ function TimesheetManager({}) {
           sx={{ marginBottom: '15px' }}
           value={employeeInfo.date}
           onChange={handleChange}
+          required
           InputLabelProps={{
             shrink: true,
           }}
         />
+          <FormControl fullWidth>
+          <InputLabel>Schedule</InputLabel>
+          <Select
+            sx={{ marginBottom: '10px' }}
+            value={employeeInfo.schedule}
+            onChange={handleChange}
+            required
+            name="schedule"
+          >
+
+            <MenuItem value="Time In">Time In</MenuItem>
+            <MenuItem value="Lunchbreak">Lunchbreak</MenuItem>
+            <MenuItem value="Time Out">Time Out</MenuItem>
+          </Select>
+        </FormControl>
+        
         {editIndex === -1 ? (
-          <Button variant="contained" color="primary" onClick={handleAddEntry}>
+          <Button variant="contained" color="primary" type="submit">
             Add Entry
           </Button>
         ) : (
@@ -136,6 +167,7 @@ function TimesheetManager({}) {
             <TableCell>Department</TableCell>
             <TableCell>Time</TableCell>
             <TableCell>Date</TableCell>
+            <TableCell>Schedule</TableCell>
             <TableCell>Actions</TableCell>
           </TableRow>
         </TableHead>
@@ -146,11 +178,12 @@ function TimesheetManager({}) {
               <TableCell>{entry.department}</TableCell>
               <TableCell>{entry.time}</TableCell>
               <TableCell>{entry.date}</TableCell>
+              <TableCell>{entry.schedule}</TableCell>
               <TableCell>
-                <Button variant="outlined" color="primary" startIcon={<EditIcon />} onClick={() => handleEdit(index)}>
+                <Button variant="outlined" color="primary" size="small" style={{ marginTop: '15px' }} startIcon={<EditIcon />} onClick={() => handleEdit(index)}>
                   Edit
                 </Button>
-                <Button variant="outlined" color="error" startIcon={<DeleteIcon />} onClick={() => handleDelete(index)}>
+                <Button className="form-button" variant="outlined" color="error" size="small" style={{ marginTop: '15px' }} startIcon={<DeleteIcon />} onClick={() => handleDelete(index)}>
                   Delete
                 </Button>
               </TableCell>
